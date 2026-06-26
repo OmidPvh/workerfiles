@@ -6,49 +6,54 @@
 <title>GATEWAY PANEL</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-body { background: radial-gradient(circle at center, #110e24 0%, #05040a 100%); min-height: 100vh; font-family: system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; padding: 20px; transition: all 0.3s; }
-.glass-panel { background: rgba(18, 14, 38, 0.6); border: 1px solid rgba(187, 134, 252, 0.15); border-radius: 20px; backdrop-filter: blur(15px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 50px rgba(187, 134, 252, 0.05); width: 100%; max-width: 650px; padding: 35px; position: relative; overflow: hidden; }
-.glass-panel::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 255, 204, 0.03) 0%, transparent 70%); pointer-events: none; }
-.lang-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #fff; border-radius: 30px; padding: 6px 16px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; }
-.lang-btn:hover, .lang-btn.active { background: #00ffcc; color: #05040a; border-color: #00ffcc; box-shadow: 0 0 15px rgba(0, 255, 204, 0.4); }
-.glow-title { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 15px rgba(0, 255, 204, 0.3); color: #00ffcc; }
-.input-group-custom { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; overflow: hidden; padding: 4px; display: flex; align-items: center; margin-bottom: 20px; transition: all 0.3s; }
-.input-group-custom:focus-within { border-color: #bb86fc; box-shadow: 0 0 15px rgba(187, 134, 252, 0.2); }
-.input-group-custom input { background: transparent; border: none; color: #fff; padding: 12px 15px; flex-grow: 1; outline: none; font-size: 0.95rem; }
-.btn-copy { background: #bb86fc; border: none; color: #120e24; border-radius: 10px; padding: 10px 20px; font-weight: bold; transition: all 0.3s; }
-.btn-copy:hover { background: #9a67ea; box-shadow: 0 0 15px rgba(187, 134, 252, 0.4); }
-.footer-text { font-size: 0.85rem; color: #8899af; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px; margin-top: 10px; }
-.glow-highlight { color: #00ffcc; text-shadow: 0 0 8px rgba(0, 255, 204, 0.2); font-weight: bold; }
+body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); min-height: 100vh; font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; padding: 20px; transition: all 0.3s; }
+.glass-panel { background: rgba(15, 12, 32, 0.55); border: 1px solid rgba(187, 134, 252, 0.2); border-radius: 24px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(187, 134, 252, 0.04); width: 100%; max-width: 600px; padding: 40px; position: relative; overflow: hidden; }
+.glass-panel::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 255, 204, 0.02) 0%, transparent 60%); pointer-events: none; }
+.lang-btn { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: #a5b4fc; border-radius: 12px; padding: 6px 16px; font-size: 0.85rem; font-weight: bold; transition: all 0.2s ease; cursor: pointer; }
+.lang-btn:hover { background: rgba(187, 134, 252, 0.15); color: #fff; border-color: rgba(187, 134, 252, 0.4); }
+.lang-btn.active { background: linear-gradient(135deg, #bb86fc, #818cf8); color: #030206; border-color: transparent; box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4); }
+.glow-title { font-weight: 700; letter-spacing: 1px; text-shadow: 0 0 20px rgba(0, 255, 204, 0.4); color: #00ffcc; font-size: 1.35rem; }
+.input-label { font-size: 0.85rem; font-weight: 600; color: #94a3b8; margin-bottom: 8px; transition: all 0.3s; }
+.input-group-custom { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; overflow: hidden; padding: 5px; display: flex; align-items: center; margin-bottom: 22px; transition: all 0.3s ease; }
+.input-group-custom:focus-within { border-color: #bb86fc; box-shadow: 0 0 18px rgba(187, 134, 252, 0.25); background: rgba(255, 255, 255, 0.04); }
+.input-group-custom input { background: transparent; border: none; color: #fff; padding: 10px 14px; flex-grow: 1; outline: none; font-size: 0.9rem; font-family: monospace, sans-serif; text-overflow: ellipsis; }
+.btn-copy { background: linear-gradient(135deg, #bb86fc, #9a67ea); border: none; color: #0a0915; border-radius: 10px; padding: 10px 18px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.btn-copy:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(187, 134, 252, 0.35); filter: brightness(1.1); }
+.btn-copy:active { transform: translateY(1px); }
+.footer-text { font-size: 0.85rem; color: #94a3b8; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 25px; margin-top: 15px; }
+.glow-highlight { color: #00ffcc; text-shadow: 0 0 10px rgba(0, 255, 204, 0.3); font-weight: 700; letter-spacing: 0.5px; }
+.badge-protocol { background: rgba(0, 255, 204, 0.1); color: #00ffcc; border: 1px solid rgba(0, 255, 204, 0.2); font-size: 0.75rem; padding: 3px 8px; border-radius: 6px; margin-right: 8px; font-weight: bold; }
 </style>
 </head>
 <body>
 <div class="glass-panel">
 <div class="d-flex justify-content-between align-items-center mb-4">
 <h4 class="glow-title m-0" id="titleText"></h4>
-<div>
-<button class="lang-btn active" id="btnFa" onclick="setLang('fa')">FA</button>
-<button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
+<div class="d-flex gap-2">
+<button class="lang-btn" id="btnFa" onclick="setLang('fa')">فارسی</button>
+<button class="lang-btn" id="btnEn" onclick="setLang('en')">English</button>
 </div>
 </div>
 <p id="descText" class="text-center text-muted mb-4"></p>
 <div class="mb-4">
-<label class="form-label d-block text-secondary mb-2" id="labelDirect"></label>
+<label class="input-label d-block mb-2" id="labelDirect"></label>
 <div class="input-group-custom">
 <input type="text" id="linkDirect" readonly>
 <button class="btn-copy" onclick="copyText('linkDirect')"><i class="bi bi-copy"></i></button>
 </div>
-<label class="form-label d-block text-secondary mb-2" id="labelBase64"></label>
+<label class="input-label d-block mb-2" id="labelBase64"></label>
 <div class="input-group-custom">
 <input type="text" id="linkBase64" readonly>
 <button class="btn-copy" onclick="copyText('linkBase64')"><i class="bi bi-copy"></i></button>
 </div>
-<label class="form-label d-block text-secondary mb-2" id="labelClash"></label>
+<label class="input-label d-block mb-2" id="labelClash"></label>
 <div class="input-group-custom">
 <input type="text" id="linkClash" readonly>
 <button class="btn-copy" onclick="copyText('linkClash')"><i class="bi bi-copy"></i></button>
 </div>
-<label class="form-label d-block text-secondary mb-2" id="labelSingBox"></label>
+<label class="input-label d-block mb-2" id="labelSingBox"></label>
 <div class="input-group-custom">
 <input type="text" id="linkSingBox" readonly>
 <button class="btn-copy" onclick="copyText('linkSingBox')"><i class="bi bi-copy"></i></button>
@@ -59,14 +64,15 @@ body { background: radial-gradient(circle at center, #110e24 0%, #05040a 100%); 
 <script>
 const translations = {
 fa: {
-title: "پنل اشتراک",
+title: "پنل دریافت اشتراک",
 desc: "اتصال امن و پایدار",
-labelDirect: "لینک اتصال مستقیم (Direct link):",
-labelBase64: "لینک اشتراک پایگاه (Base64 link):",
-labelClash: "لینک اشتراک کلش (Clash link):",
-labelSingBox: "لینک اشتراک ساین‌باکس (Sing-box link):",
+labelDirect: "لینک اتصال مستقیم (Direct Link):",
+labelBase64: "لینک اشتراک پایگاه (Base64 Link):",
+labelClash: "لینک اشتراک کلش (Clash Link):",
+labelSingBox: "لینک اشتراک ساین‌باکس (Sing-box Link):",
 direction: "rtl",
-align: "right"
+align: "right",
+expireLabel: "تاریخ پایان اشتراک: "
 },
 en: {
 title: "SUBSCRIPTION PANEL",
@@ -76,7 +82,8 @@ labelBase64: "Base64 Subscription Link:",
 labelClash: "Clash Subscription Link:",
 labelSingBox: "Sing-box Subscription Link:",
 direction: "ltr",
-align: "left"
+align: "left",
+expireLabel: "Subscription Expiration: "
 }
 };
 function copyText(id) {
@@ -96,19 +103,26 @@ document.getElementById('labelDirect').innerText = t.labelDirect;
 document.getElementById('labelBase64').innerText = t.labelBase64;
 document.getElementById('labelClash').innerText = t.labelClash;
 document.getElementById('labelSingBox').innerText = t.labelSingBox;
-document.getElementById('btnFa').classList.toggle('active', lang === 'fa');
-document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+document.getElementById('btnFa').className = lang === 'fa' ? 'lang-btn active' : 'lang-btn';
+document.getElementById('btnEn').className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
 const inputs = ['linkDirect', 'linkBase64', 'linkClash', 'linkSingBox'];
 inputs.forEach(id => {
 const input = document.getElementById(id);
 input.style.textAlign = 'ltr';
 input.style.direction = 'ltr';
 });
-document.getElementById('footerText').innerHTML = `<span class="glow-highlight">{{EXPIRE}}</span>`;
+let rawExpire = "{{EXPIRE}}";
+let datePart = rawExpire.replace("تاریخ پایان اشتراک: ", "");
+if (lang === 'en') {
+datePart = datePart.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+document.getElementById('footerText').innerHTML = `${t.expireLabel}<span class="glow-highlight">${datePart}</span>`;
+} else {
+document.getElementById('footerText').innerHTML = `${t.expireLabel}<span class="glow-highlight">${datePart}</span>`;
+}
 }
 const host = "{{HOST}}";
 const password = "{{PASSWORD}}";
-document.getElementById('linkDirect').value = `https://${host}/${password}`;
+document.getElementById('linkDirect').value = `https://${host}/${password}?sub`;
 document.getElementById('linkBase64').value = `https://${host}/${password}?b64`;
 document.getElementById('linkClash').value = `https://${host}/${password}?clash`;
 document.getElementById('linkSingBox').value = `https://${host}/${password}?singbox`;
