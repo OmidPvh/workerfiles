@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GATEWAY PANEL</title>
+<title>{{USERNAME}}</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
@@ -225,10 +225,11 @@ document.getElementById('footerText').innerText = datePart;
 }
 const host = "{{HOST}}";
 const password = "{{PASSWORD}}";
-document.getElementById('linkDirect').value = `https://${host}/${password}?sub`;
-document.getElementById('linkBase64').value = `https://${host}/${password}?b64`;
-document.getElementById('linkClash').value = `https://${host}/${password}?clash`;
-document.getElementById('linkSingBox').value = `https://${host}/${password}?singbox`;
+const username = "{{USERNAME}}";
+document.getElementById('linkDirect').value = `https://${host}/${password}?sub#${username}`;
+document.getElementById('linkBase64').value = `https://${host}/${password}?b64#${username}`;
+document.getElementById('linkClash').value = `https://${host}/${password}?clash#${username}`;
+document.getElementById('linkSingBox').value = `https://${host}/${password}?singbox#${username}`;
 setLang('fa');
 </script>
 </body>
