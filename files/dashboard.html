@@ -3,48 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MELO Subscription Panel</title>
+<title>MELO GATEWAY PANEL</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <style>
-body { background-color: #121212; color: #e0e0e0; font-family: system-ui, -apple-system, sans-serif; }
-.card { background-color: #1e1e1e; border: 1px solid #333; }
-.btn-custom { background-color: #bb86fc; color: #121212; }
-.btn-custom:hover { background-color: #9a67ea; color: #121212; }
+body { background: radial-gradient(circle at center, #110e24 0%, #05040a 100%); min-height: 100vh; font-family: system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; padding: 20px; transition: all 0.3s; }
+.glass-panel { background: rgba(18, 14, 38, 0.6); border: 1px solid rgba(187, 134, 252, 0.15); border-radius: 20px; backdrop-filter: blur(15px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 50px rgba(187, 134, 252, 0.05); width: 100%; max-width: 650px; padding: 35px; position: relative; overflow: hidden; }
+.glass-panel::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 255, 204, 0.03) 0%, transparent 70%); pointer-events: none; }
+.lang-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #fff; border-radius: 30px; padding: 6px 16px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; }
+.lang-btn:hover, .lang-btn.active { background: #00ffcc; color: #05040a; border-color: #00ffcc; box-shadow: 0 0 15px rgba(0, 255, 204, 0.4); }
+.glow-title { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 15px rgba(0, 255, 204, 0.3); color: #00ffcc; }
+.input-group-custom { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; overflow: hidden; padding: 4px; display: flex; align-items: center; margin-bottom: 20px; transition: all 0.3s; }
+.input-group-custom:focus-within { border-color: #bb86fc; box-shadow: 0 0 15px rgba(187, 134, 252, 0.2); }
+.input-group-custom input { background: transparent; border: none; color: #fff; padding: 12px 15px; flex-grow: 1; outline: none; font-size: 0.95rem; }
+.btn-copy { background: #bb86fc; border: none; color: #120e24; border-radius: 10px; padding: 10px 20px; font-weight: bold; transition: all 0.3s; }
+.btn-copy:hover { background: #9a67ea; box-shadow: 0 0 15px rgba(187, 134, 252, 0.4); }
+.footer-text { font-size: 0.85rem; color: #8899af; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px; margin-top: 10px; }
+.glow-highlight { color: #00ffcc; text-shadow: 0 0 8px rgba(0, 255, 204, 0.2); font-weight: bold; }
 </style>
 </head>
 <body>
-<div class="container py-5">
-<div class="card p-4 shadow-lg">
-<h2 class="text-center mb-4">MELO subscription panel</h2>
-<div class="mb-3">
-<label class="form-label">MELO direct link:</label>
-<div class="input-group">
-<input type="text" class="form-control bg-dark text-white border-secondary" id="meloLink" value="https://{{HOST}}/{{PASSWORD}}" readonly>
-<button class="btn btn-custom" onclick="copyText('meloLink')">Copy</button>
+<div class="glass-panel">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h4 class="glow-title m-0" id="titleText"></h4>
+<div>
+<button class="lang-btn active" id="btnFa" onclick="setLang('fa')">FA</button>
+<button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
 </div>
 </div>
-<div class="mb-3">
-<label class="form-label">Clash subscription link:</label>
-<div class="input-group">
-<input type="text" class="form-control bg-dark text-white border-secondary" id="clashLink" value="https://{{HOST}}/{{PASSWORD}}?clash" readonly>
-<button class="btn btn-custom" onclick="copyText('clashLink')">Copy</button>
+<p id="descText" class="text-center text-muted mb-4"></p>
+<div class="mb-4">
+<label class="form-label d-block text-secondary mb-2" id="labelDirect"></label>
+<div class="input-group-custom">
+<input type="text" id="linkDirect" readonly>
+<button class="btn-copy" onclick="copyText('linkDirect')"><i class="bi bi-copy"></i></button>
+</div>
+<label class="form-label d-block text-secondary mb-2" id="labelBase64"></label>
+<div class="input-group-custom">
+<input type="text" id="linkBase64" readonly>
+<button class="btn-copy" onclick="copyText('linkBase64')"><i class="bi bi-copy"></i></button>
+</div>
+<label class="form-label d-block text-secondary mb-2" id="labelClash"></label>
+<div class="input-group-custom">
+<input type="text" id="linkClash" readonly>
+<button class="btn-copy" onclick="copyText('linkClash')"><i class="bi bi-copy"></i></button>
+</div>
+<label class="form-label d-block text-secondary mb-2" id="labelSingBox"></label>
+<div class="input-group-custom">
+<input type="text" id="linkSingBox" readonly>
+<button class="btn-copy" onclick="copyText('linkSingBox')"><i class="bi bi-copy"></i></button>
 </div>
 </div>
-<div class="mb-3">
-<label class="form-label">Sing-box subscription link:</label>
-<div class="input-group">
-<input type="text" class="form-control bg-dark text-white border-secondary" id="sbLink" value="https://{{HOST}}/{{PASSWORD}}?singbox" readonly>
-<button class="btn btn-custom" onclick="copyText('sbLink')">Copy</button>
-</div>
-</div>
-</div>
+<div class="footer-text" id="footerText"></div>
 </div>
 <script>
+const translations = {
+fa: {
+title: "پنل اشتراک MELO",
+desc: "کانفیگ‌های فعال با پایداری حداکثری و پهنای باند اختصاصی ورکر کلودفلر",
+labelDirect: "لینک اتصال مستقیم (Direct link):",
+labelBase64: "لینک اشتراک پایگاه (Base64 link):",
+labelClash: "لینک اشتراک کلش (Clash link):",
+labelSingBox: "لینک اشتراک ساین‌باکس (Sing-box link):",
+expirePrefix: "تاریخ انقضای اشتراک: ",
+direction: "rtl",
+align: "right"
+},
+en: {
+title: "MELO SUBSCRIPTION",
+desc: "Active configurations with maximum stability and dedicated Cloudflare Workers bandwidth",
+labelDirect: "Direct Connection Link:",
+labelBase64: "Base64 Subscription Link:",
+labelClash: "Clash Subscription Link:",
+labelSingBox: "Sing-box Subscription Link:",
+expirePrefix: "Subscription Expiration Date: ",
+direction: "ltr",
+align: "left"
+}
+};
 function copyText(id) {
 const input = document.getElementById(id);
 input.select();
 document.execCommand('copy');
 }
+function gregorianToJalali(gy, gm, gd) {
+const g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+let jy = (gy <= 1600) ? 0 : 979;
+gy -= (gy <= 1600) ? 621 : 1600;
+const gy2 = (gm > 2) ? (gy + 1) : gy;
+let days = (365 * gy) + parseInt((gy2 + 3) / 4) - parseInt((gy2 + 99) / 100) + parseInt((gy2 + 399) / 400) - 80 + gd + g_d_m[gm - 1];
+jy += 33 * parseInt(days / 12053);
+days %= 12053;
+jy += 4 * parseInt(days / 1461);
+days %= 1461;
+jy += parseInt((days - 1) / 365);
+if (days > 365) days = (days - 1) % 365;
+const jm = (days < 186) ? 1 + parseInt(days / 31) : 7 + parseInt((days - 186) / 30);
+const jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
+return [jy, jm, jd];
+}
+function setLang(lang) {
+const t = translations[lang];
+document.documentElement.lang = lang;
+document.documentElement.dir = t.direction;
+document.body.style.direction = t.direction;
+document.body.style.textAlign = t.align;
+document.getElementById('titleText').innerText = t.title;
+document.getElementById('descText').innerText = t.desc;
+document.getElementById('labelDirect').innerText = t.labelDirect;
+document.getElementById('labelBase64').innerText = t.labelBase64;
+document.getElementById('labelClash').innerText = t.labelClash;
+document.getElementById('labelSingBox').innerText = t.labelSingBox;
+document.getElementById('btnFa').classList.toggle('active', lang === 'fa');
+document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+const inputs = ['linkDirect', 'linkBase64', 'linkClash', 'linkSingBox'];
+inputs.forEach(id => {
+const input = document.getElementById(id);
+input.style.textAlign = 'ltr';
+input.style.direction = 'ltr';
+});
+const expireTimestamp = Number("{{EXPIRE}}") * 1000;
+const d = new Date(expireTimestamp);
+if (lang === 'fa') {
+const jalali = gregorianToJalali(d.getFullYear(), d.getMonth() + 1, d.getDate());
+const formattedJalali = `${jalali[0]}/${String(jalali[1]).padStart(2, '0')}/${String(jalali[2]).padStart(2, '0')}`;
+document.getElementById('footerText').innerHTML = `${t.expirePrefix}<span class="glow-highlight">${formattedJalali}</span>`;
+} else {
+const formattedGregorian = `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}`;
+document.getElementById('footerText').innerHTML = `${t.expirePrefix}<span class="glow-highlight">${formattedGregorian}</span>`;
+}
+}
+const host = "{{HOST}}";
+const password = "{{PASSWORD}}";
+document.getElementById('linkDirect').value = `https://${host}/${password}`;
+document.getElementById('linkBase64').value = `https://${host}/${password}?b64`;
+document.getElementById('linkClash').value = `https://${host}/${password}?clash`;
+document.getElementById('linkSingBox').value = `https://${host}/${password}?singbox`;
+setLang('fa');
 </script>
 </body>
 </html>
