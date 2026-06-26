@@ -24,8 +24,10 @@ body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); 
 .input-group-custom input { background: transparent; border: none; color: #fff; padding: 10px 14px; flex-grow: 1; outline: none; font-size: 0.78rem; font-family: monospace, sans-serif; text-overflow: ellipsis; }
 .btn-copy { background: linear-gradient(135deg, #bb86fc, #9a67ea); border: none; color: #0a0915; border-radius: 10px; padding: 10px 18px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; }
 .btn-copy:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(187, 134, 252, 0.35); filter: brightness(1.1); }
-.btn-help { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: #00ffcc; border-radius: 10px; padding: 10px 14px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; }
-.btn-help:hover { background: rgba(0, 255, 204, 0.15); border-color: #00ffcc; box-shadow: 0 0 12px rgba(0, 255, 204, 0.35); }
+.btn-qr { background: rgba(0, 255, 204, 0.04); border: 1px solid rgba(0, 255, 204, 0.15); color: #00ffcc; border-radius: 10px; padding: 10px 14px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.btn-qr:hover { background: #00ffcc; color: #120e24; box-shadow: 0 0 15px rgba(0, 255, 204, 0.4); }
+.btn-help { background: rgba(129, 140, 248, 0.04); border: 1px solid rgba(129, 140, 248, 0.15); color: #818cf8; border-radius: 10px; padding: 10px 14px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.btn-help:hover { background: #818cf8; color: #120e24; box-shadow: 0 0 15px rgba(129, 140, 248, 0.4); }
 .custom-modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 4, 10, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 1000; transition: all 0.3s ease; opacity: 0; }
 .custom-modal-backdrop.show { display: flex; opacity: 1; }
 .custom-modal-content { background: rgba(18, 14, 38, 0.95); border: 1px solid rgba(187, 134, 252, 0.3); border-radius: 20px; box-shadow: 0 10px 40px rgba(187, 134, 252, 0.2); width: 90%; max-width: 500px; padding: 30px; animation: modalIn 0.3s ease; }
@@ -62,24 +64,28 @@ body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); 
 <div class="input-group-custom">
 <input type="text" id="linkDirect" readonly>
 <button class="btn-copy" onclick="copyText('linkDirect')"><i class="bi bi-copy"></i></button>
+<button class="btn-qr" onclick="openQR('linkDirect', 'labelDirect')"><i class="bi bi-qr-code"></i></button>
 <button class="btn-help" onclick="openHelp('direct')"><i class="bi bi-question-circle"></i></button>
 </div>
 <label class="input-label d-block mb-2" id="labelBase64"></label>
 <div class="input-group-custom">
 <input type="text" id="linkBase64" readonly>
 <button class="btn-copy" onclick="copyText('linkBase64')"><i class="bi bi-copy"></i></button>
+<button class="btn-qr" onclick="openQR('linkBase64', 'labelBase64')"><i class="bi bi-qr-code"></i></button>
 <button class="btn-help" onclick="openHelp('base64')"><i class="bi bi-question-circle"></i></button>
 </div>
 <label class="input-label d-block mb-2" id="labelClash"></label>
 <div class="input-group-custom">
 <input type="text" id="linkClash" readonly>
 <button class="btn-copy" onclick="copyText('linkClash')"><i class="bi bi-copy"></i></button>
+<button class="btn-qr" onclick="openQR('linkClash', 'labelClash')"><i class="bi bi-qr-code"></i></button>
 <button class="btn-help" onclick="openHelp('clash')"><i class="bi bi-question-circle"></i></button>
 </div>
 <label class="input-label d-block mb-2" id="labelSingBox"></label>
 <div class="input-group-custom">
 <input type="text" id="linkSingBox" readonly>
 <button class="btn-copy" onclick="copyText('linkSingBox')"><i class="bi bi-copy"></i></button>
+<button class="btn-qr" onclick="openQR('linkSingBox', 'labelSingBox')"><i class="bi bi-qr-code"></i></button>
 <button class="btn-help" onclick="openHelp('singbox')"><i class="bi bi-question-circle"></i></button>
 </div>
 </div>
@@ -111,11 +117,11 @@ downloadBtn: "دانلود آخرین نسخه از گیت‌هاب",
 downloadAndroid: "دانلود نسخه اندروید (v2rayNG)",
 downloadWindows: "دانلود نسخه ویندوز (v2rayN)",
 downloadKaring: "دانلود آخرین نسخه Karing",
-downloadClashVerge: "دانلود آخرین نسخه Clash Verge",
+downloadClashMi: "دانلود نرم‌افزار Clash Mi",
 guides: {
 direct: "پیشنهاد ما برای سیستم‌عامل اندروید برنامه v2rayNG و برای لپ‌تاپ (ویندوز) برنامه v2rayN است. این برنامه‌ها پایداری و سرعت بسیار مطلوبی برای اتصال مستقیم دارند.",
 base64: "پیشنهاد ما برای تمام پلتفرم‌ها (اندروید، آیفون، ویندوز و مک) برنامه هیدیفای (Hiddify) است. این نرم‌افزار از پایداری عالی و رابط کاربری بسیار پیشرفته‌ای برخوردار است.",
-clash: "پیشنهاد ما برای اتصال کلش، استفاده از برنامه‌های محبوب Karing یا Clash Verge است. این برنامه‌ها قابلیت مسیریابی و مدیریت هوشمند ترافیک اینترنت را فراهم می‌کنند.",
+clash: "پیشنهاد ما برای اتصال کلش، استفاده از برنامه‌های محبوب Karing یا نرم‌افزار Clash Mi است. این برنامه‌ها قابلیت مسیریابی و مدیریت هوشمند ترافیک اینترنت را فراهم می‌کنند.",
 singbox: "پیشنهاد ما برای این بخش، استفاده از کلاینت رسمی و بسیار بهینه Sing-box است که مجهز به هسته‌ای پرسرعت و پایدار می‌باشد."
 }
 },
@@ -134,11 +140,11 @@ downloadBtn: "Download Latest Release from GitHub",
 downloadAndroid: "Download Android Version (v2rayNG)",
 downloadWindows: "Download Windows Version (v2rayN)",
 downloadKaring: "Download Karing Version",
-downloadClashVerge: "Download Clash Verge Version",
+downloadClashMi: "Download Clash Mi App",
 guides: {
 direct: "We recommend v2rayNG for Android and v2rayN for Laptop (Windows). These applications provide outstanding stability and speed for direct connection.",
 base64: "We recommend Hiddify for all platforms (Android, iOS, Windows, and macOS). It offers a modern design and exceptionally stable connection.",
-clash: "We recommend using Karing or Clash Verge for Clash subscription. These applications feature smart routing and traffic management.",
+clash: "We recommend using Karing or Clash Mi for Clash subscription. These applications feature smart routing and traffic management.",
 singbox: "We recommend using the official Sing-box application, which features an extremely fast and optimized core."
 }
 }
@@ -147,6 +153,21 @@ function copyText(id) {
 const input = document.getElementById(id);
 input.select();
 document.execCommand('copy');
+}
+function openQR(inputId, labelId) {
+const t = translations[currentLang];
+const linkVal = document.getElementById(inputId).value;
+document.getElementById('modalTitle').innerText = t[labelId];
+const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(linkVal)}`;
+document.getElementById('modalBody').innerHTML = `
+<div class="text-center p-3">
+<img src="${qrUrl}" alt="QR" class="img-fluid rounded mb-3" style="border: 4px solid #fff; box-shadow: 0 0 20px rgba(0,255,204,0.35); max-width: 180px;">
+<p class="text-secondary small" style="word-break: break-all; margin-top: 10px; font-family: monospace;">${linkVal}</p>
+</div>
+`;
+const modal = document.getElementById('customModal');
+modal.style.display = 'flex';
+setTimeout(() => modal.classList.add('show'), 10);
 }
 function openHelp(type) {
 const t = translations[currentLang];
@@ -159,7 +180,7 @@ contentHtml += `<a href="https://github.com/2dust/v2rayN/releases" target="_blan
 contentHtml += `<a href="https://github.com/hiddify/hiddify-next/releases" target="_blank" class="btn-download"><i class="bi bi-download"></i> ${t.downloadBtn}</a>`;
 } else if (type === 'clash') {
 contentHtml += `<a href="https://github.com/KaringX/karing/releases" target="_blank" class="btn-download"><i class="bi bi-download"></i> ${t.downloadKaring}</a>`;
-contentHtml += `<a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank" class="btn-download"><i class="bi bi-download"></i> ${t.downloadClashVerge}</a>`;
+contentHtml += `<a href="https://clashmi.app/" target="_blank" class="btn-download"><i class="bi bi-download"></i> ${t.downloadClashMi}</a>`;
 } else if (type === 'singbox') {
 contentHtml += `<a href="https://github.com/SagerNet/sing-box/releases" target="_blank" class="btn-download"><i class="bi bi-download"></i> ${t.downloadBtn}</a>`;
 }
