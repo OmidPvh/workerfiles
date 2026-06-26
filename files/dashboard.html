@@ -15,16 +15,27 @@ body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); 
 .lang-btn:hover { background: rgba(187, 134, 252, 0.15); color: #fff; border-color: rgba(187, 134, 252, 0.4); }
 .lang-btn.active { background: linear-gradient(135deg, #bb86fc, #818cf8); color: #030206; border-color: transparent; box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4); }
 .glow-title { font-weight: 700; letter-spacing: 1px; text-shadow: 0 0 20px rgba(0, 255, 204, 0.4); color: #00ffcc; font-size: 1.35rem; }
+.user-meta-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 18px; margin-bottom: 25px; }
+.meta-label { font-size: 0.85rem; font-weight: 600; color: #94a3b8; }
+.meta-value { font-size: 0.95rem; font-weight: bold; }
 .input-label { font-size: 0.85rem; font-weight: 600; color: #94a3b8; margin-bottom: 8px; transition: all 0.3s; }
-.input-group-custom { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; overflow: hidden; padding: 5px; display: flex; align-items: center; margin-bottom: 22px; transition: all 0.3s ease; }
+.input-group-custom { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; overflow: hidden; padding: 5px; display: flex; align-items: center; margin-bottom: 22px; transition: all 0.3s ease; gap: 6px; }
 .input-group-custom:focus-within { border-color: #bb86fc; box-shadow: 0 0 18px rgba(187, 134, 252, 0.25); background: rgba(255, 255, 255, 0.04); }
-.input-group-custom input { background: transparent; border: none; color: #fff; padding: 10px 14px; flex-grow: 1; outline: none; font-size: 0.9rem; font-family: monospace, sans-serif; text-overflow: ellipsis; }
-.btn-copy { background: linear-gradient(135deg, #bb86fc, #9a67ea); border: none; color: #0a0915; border-radius: 10px; padding: 10px 18px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.input-group-custom input { background: transparent; border: none; color: #fff; padding: 10px 14px; flex-grow: 1; outline: none; font-size: 0.78rem; font-family: monospace, sans-serif; text-overflow: ellipsis; }
+.btn-copy { background: linear-gradient(135deg, #bb86fc, #9a67ea); border: none; color: #0a0915; border-radius: 10px; padding: 10px 18px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; }
 .btn-copy:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(187, 134, 252, 0.35); filter: brightness(1.1); }
-.btn-copy:active { transform: translateY(1px); }
-.footer-text { font-size: 0.85rem; color: #94a3b8; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 25px; margin-top: 15px; }
-.glow-highlight { color: #00ffcc; text-shadow: 0 0 10px rgba(0, 255, 204, 0.3); font-weight: 700; letter-spacing: 0.5px; }
-.badge-protocol { background: rgba(0, 255, 204, 0.1); color: #00ffcc; border: 1px solid rgba(0, 255, 204, 0.2); font-size: 0.75rem; padding: 3px 8px; border-radius: 6px; margin-right: 8px; font-weight: bold; }
+.btn-help { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: #00ffcc; border-radius: 10px; padding: 10px 14px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; }
+.btn-help:hover { background: rgba(0, 255, 204, 0.15); border-color: #00ffcc; box-shadow: 0 0 12px rgba(0, 255, 204, 0.35); }
+.custom-modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 4, 10, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 1000; transition: all 0.3s ease; opacity: 0; }
+.custom-modal-backdrop.show { display: flex; opacity: 1; }
+.custom-modal-content { background: rgba(18, 14, 38, 0.95); border: 1px solid rgba(187, 134, 252, 0.3); border-radius: 20px; box-shadow: 0 10px 40px rgba(187, 134, 252, 0.2); width: 90%; max-width: 500px; padding: 30px; animation: modalIn 0.3s ease; }
+@keyframes modalIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.btn-close-modal { background: transparent; border: none; color: #8899af; font-size: 1.2rem; cursor: pointer; transition: all 0.2s; }
+.btn-close-modal:hover { color: #bb86fc; }
+.guide-desc { color: #a5b4fc; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; text-align: justify; }
+.btn-download { background: linear-gradient(135deg, #00ffcc, #0284c7); border: none; color: #05040a; border-radius: 12px; padding: 12px 20px; font-weight: bold; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: all 0.2s; font-size: 0.9rem; margin-bottom: 12px; }
+.btn-download:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4); color: #05040a; }
+.glow-highlight { color: #00ffcc; text-shadow: 0 0 10px rgba(0, 255, 204, 0.3); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -36,54 +47,100 @@ body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); 
 <button class="lang-btn" id="btnEn" onclick="setLang('en')">English</button>
 </div>
 </div>
-<p id="descText" class="text-center text-muted mb-4"></p>
+<div class="user-meta-box">
+<div class="d-flex justify-content-between align-items-center mb-2">
+<span class="meta-label" id="userLabel"></span>
+<span class="meta-value glow-highlight">{{USERNAME}}</span>
+</div>
+<div class="d-flex justify-content-between align-items-center">
+<span class="meta-label" id="expireLabel"></span>
+<span class="meta-value glow-highlight" id="footerText"></span>
+</div>
+</div>
 <div class="mb-4">
 <label class="input-label d-block mb-2" id="labelDirect"></label>
 <div class="input-group-custom">
 <input type="text" id="linkDirect" readonly>
 <button class="btn-copy" onclick="copyText('linkDirect')"><i class="bi bi-copy"></i></button>
+<button class="btn-help" onclick="openHelp('direct')"><i class="bi bi-question-circle"></i></button>
 </div>
 <label class="input-label d-block mb-2" id="labelBase64"></label>
 <div class="input-group-custom">
 <input type="text" id="linkBase64" readonly>
 <button class="btn-copy" onclick="copyText('linkBase64')"><i class="bi bi-copy"></i></button>
+<button class="btn-help" onclick="openHelp('base64')"><i class="bi bi-question-circle"></i></button>
 </div>
 <label class="input-label d-block mb-2" id="labelClash"></label>
 <div class="input-group-custom">
 <input type="text" id="linkClash" readonly>
 <button class="btn-copy" onclick="copyText('linkClash')"><i class="bi bi-copy"></i></button>
+<button class="btn-help" onclick="openHelp('clash')"><i class="bi bi-question-circle"></i></button>
 </div>
 <label class="input-label d-block mb-2" id="labelSingBox"></label>
 <div class="input-group-custom">
 <input type="text" id="linkSingBox" readonly>
 <button class="btn-copy" onclick="copyText('linkSingBox')"><i class="bi bi-copy"></i></button>
+<button class="btn-help" onclick="openHelp('singbox')"><i class="bi bi-question-circle"></i></button>
 </div>
 </div>
-<div class="footer-text" id="footerText"></div>
+</div>
+<div class="custom-modal-backdrop" id="customModal" onclick="closeHelp(event)">
+<div class="custom-modal-content" onclick="event.stopPropagation()">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h5 class="glow-title m-0" id="modalTitle"></h5>
+<button class="btn-close-modal" onclick="closeHelp()"><i class="bi bi-x-lg"></i></button>
+</div>
+<div class="modal-body-content" id="modalBody"></div>
+</div>
 </div>
 <script>
+let currentLang = 'fa';
 const translations = {
 fa: {
 title: "پنل دریافت اشتراک",
-desc: "اتصال امن و پایدار",
+userLabel: "نام کاربری:",
+expireLabel: "تاریخ پایان اشتراک:",
 labelDirect: "لینک اتصال مستقیم (Direct Link):",
 labelBase64: "لینک اشتراک پایگاه (Base64 Link):",
 labelClash: "لینک اشتراک کلش (Clash Link):",
 labelSingBox: "لینک اشتراک ساین‌باکس (Sing-box Link):",
 direction: "rtl",
 align: "right",
-expireLabel: "تاریخ پایان اشتراک: "
+guideTitle: "راهنمای اتصال و دانلود نرم‌افزار",
+downloadBtn: "دانلود آخرین نسخه از گیت‌هاب",
+downloadAndroid: "دانلود نسخه اندروید (v2rayNG)",
+downloadWindows: "دانلود نسخه ویندوز (v2rayN)",
+downloadKaring: "دانلود آخرین نسخه Karing",
+downloadClashVerge: "دانلود آخرین نسخه Clash Verge",
+guides: {
+direct: "پیشنهاد ما برای سیستم‌عامل اندروید برنامه v2rayNG و برای لپ‌تاپ (ویندوز) برنامه v2rayN است. این برنامه‌ها پایداری و سرعت بسیار مطلوبی برای اتصال مستقیم دارند.",
+base64: "پیشنهاد ما برای تمام پلتفرم‌ها (اندروید، آیفون، ویندوز و مک) برنامه هیدیفای (Hiddify) است. این نرم‌افزار از پایداری عالی و رابط کاربری بسیار پیشرفته‌ای برخوردار است.",
+clash: "پیشنهاد ما برای اتصال کلش، استفاده از برنامه‌های محبوب Karing یا Clash Verge است. این برنامه‌ها قابلیت مسیریابی و مدیریت هوشمند ترافیک اینترنت را فراهم می‌کنند.",
+singbox: "پیشنهاد ما برای این بخش، استفاده از کلاینت رسمی و بسیار بهینه Sing-box است که مجهز به هسته‌ای پرسرعت و پایدار می‌باشد."
+}
 },
 en: {
 title: "SUBSCRIPTION PANEL",
-desc: "Secure and stable connection",
+userLabel: "Username:",
+expireLabel: "Subscription Expiration:",
 labelDirect: "Direct Connection Link:",
 labelBase64: "Base64 Subscription Link:",
 labelClash: "Clash Subscription Link:",
 labelSingBox: "Sing-box Subscription Link:",
 direction: "ltr",
 align: "left",
-expireLabel: "Subscription Expiration: "
+guideTitle: "Connection & Download Guide",
+downloadBtn: "Download Latest Release from GitHub",
+downloadAndroid: "Download Android Version (v2rayNG)",
+downloadWindows: "Download Windows Version (v2rayN)",
+downloadKaring: "Download Karing Version",
+downloadClashVerge: "Download Clash Verge Version",
+guides: {
+direct: "We recommend v2rayNG for Android and v2rayN for Laptop (Windows). These applications provide outstanding stability and speed for direct connection.",
+base64: "We recommend Hiddify for all platforms (Android, iOS, Windows, and macOS). It offers a modern design and exceptionally stable connection.",
+clash: "We recommend using Karing or Clash Verge for Clash subscription. These applications feature smart routing and traffic management.",
+singbox: "We recommend using the official Sing-box application, which features an extremely fast and optimized core."
+}
 }
 };
 function copyText(id) {
@@ -91,14 +148,41 @@ const input = document.getElementById(id);
 input.select();
 document.execCommand('copy');
 }
+function openHelp(type) {
+const t = translations[currentLang];
+document.getElementById('modalTitle').innerText = t.guideTitle;
+let contentHtml = `<p class="guide-desc">${t.guides[type]}</p>`;
+if (type === 'direct') {
+contentHtml += `<a href="https://github.com/2dust/v2rayNG/releases" target="_blank" class="btn-download"><i class="bi bi-android2"></i> ${t.downloadAndroid}</a>`;
+contentHtml += `<a href="https://github.com/2dust/v2rayN/releases" target="_blank" class="btn-download"><i class="bi bi-windows"></i> ${t.downloadWindows}</a>`;
+} else if (type === 'base64') {
+contentHtml += `<a href="https://github.com/hiddify/hiddify-next/releases" target="_blank" class="btn-download"><i class="bi bi-download"></i> ${t.downloadBtn}</a>`;
+} else if (type === 'clash') {
+contentHtml += `<a href="https://github.com/KaringX/karing/releases" target="_blank" class="btn-download"><i class="bi bi-download"></i> ${t.downloadKaring}</a>`;
+contentHtml += `<a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank" class="btn-download"><i class="bi bi-download"></i> ${t.downloadClashVerge}</a>`;
+} else if (type === 'singbox') {
+contentHtml += `<a href="https://github.com/SagerNet/sing-box/releases" target="_blank" class="btn-download"><i class="bi bi-download"></i> ${t.downloadBtn}</a>`;
+}
+document.getElementById('modalBody').innerHTML = contentHtml;
+const modal = document.getElementById('customModal');
+modal.style.display = 'flex';
+setTimeout(() => modal.classList.add('show'), 10);
+}
+function closeHelp(e) {
+const modal = document.getElementById('customModal');
+modal.classList.remove('show');
+setTimeout(() => modal.style.display = 'none', 300);
+}
 function setLang(lang) {
+currentLang = lang;
 const t = translations[lang];
 document.documentElement.lang = lang;
 document.documentElement.dir = t.direction;
 document.body.style.direction = t.direction;
 document.body.style.textAlign = t.align;
 document.getElementById('titleText').innerText = t.title;
-document.getElementById('descText').innerText = t.desc;
+document.getElementById('userLabel').innerText = t.userLabel;
+document.getElementById('expireLabel').innerText = t.expireLabel;
 document.getElementById('labelDirect').innerText = t.labelDirect;
 document.getElementById('labelBase64').innerText = t.labelBase64;
 document.getElementById('labelClash').innerText = t.labelClash;
@@ -115,10 +199,8 @@ let rawExpire = "{{EXPIRE}}";
 let datePart = rawExpire.replace("تاریخ پایان اشتراک: ", "");
 if (lang === 'en') {
 datePart = datePart.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
-document.getElementById('footerText').innerHTML = `${t.expireLabel}<span class="glow-highlight">${datePart}</span>`;
-} else {
-document.getElementById('footerText').innerHTML = `${t.expireLabel}<span class="glow-highlight">${datePart}</span>`;
 }
+document.getElementById('footerText').innerText = datePart;
 }
 const host = "{{HOST}}";
 const password = "{{PASSWORD}}";
