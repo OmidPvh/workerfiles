@@ -8,25 +8,24 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); min-height: 100vh; font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; padding: 20px; transition: all 0.3s; }
-.glass-panel { background: rgba(15, 12, 32, 0.55); border: 1px solid rgba(187, 134, 252, 0.2); border-radius: 24px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(187, 134, 252, 0.04); width: 100%; max-width: 600px; padding: 40px; position: relative; overflow: hidden; }
+body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); min-height: 100vh; font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 3vw, 20px); transition: all 0.3s; }
+.glass-panel { background: rgba(15, 12, 32, 0.55); border: 1px solid rgba(187, 134, 252, 0.2); border-radius: 24px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(187, 134, 252, 0.04); width: 100%; max-width: 580px; padding: clamp(20px, 6vw, 40px); position: relative; overflow: hidden; }
 .glass-panel::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 255, 204, 0.02) 0%, transparent 60%); pointer-events: none; }
-.lang-btn { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: #a5b4fc; border-radius: 12px; padding: 6px 16px; font-size: 0.85rem; font-weight: bold; transition: all 0.2s ease; cursor: pointer; }
+.lang-btn { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: #a5b4fc; border-radius: 12px; padding: 6px 16px; font-size: clamp(0.75rem, 2vw, 0.85rem); font-weight: bold; transition: all 0.2s ease; cursor: pointer; }
 .lang-btn:hover { background: rgba(187, 134, 252, 0.15); color: #fff; border-color: rgba(187, 134, 252, 0.4); }
 .lang-btn.active { background: linear-gradient(135deg, #bb86fc, #818cf8); color: #030206; border-color: transparent; box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4); }
-.glow-title { font-weight: 700; letter-spacing: 1px; text-shadow: 0 0 20px rgba(0, 255, 204, 0.4); color: #00ffcc; font-size: 1.35rem; }
-.user-meta-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 18px; margin-bottom: 25px; }
-.meta-label { font-size: 0.85rem; font-weight: 600; color: #94a3b8; }
-.meta-value { font-size: 0.95rem; font-weight: bold; }
-.input-label { font-size: 0.85rem; font-weight: 600; color: #94a3b8; margin-bottom: 8px; transition: all 0.3s; }
-.input-group-custom { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; overflow: hidden; padding: 5px; display: flex; align-items: center; margin-bottom: 22px; transition: all 0.3s ease; gap: 6px; }
-.input-group-custom:focus-within { border-color: #bb86fc; box-shadow: 0 0 18px rgba(187, 134, 252, 0.25); background: rgba(255, 255, 255, 0.04); }
-.input-group-custom input { background: transparent; border: none; color: #fff; padding: 10px 14px; flex-grow: 1; outline: none; font-size: 0.78rem; font-family: monospace, sans-serif; text-overflow: ellipsis; }
-.btn-copy { background: linear-gradient(135deg, #bb86fc, #9a67ea); border: none; color: #0a0915; border-radius: 10px; padding: 10px 18px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; }
+.glow-title { font-weight: 700; letter-spacing: 1px; text-shadow: 0 0 20px rgba(0, 255, 204, 0.4); color: #00ffcc; font-size: clamp(1.1rem, 4vw, 1.35rem); }
+.user-meta-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: clamp(12px, 4vw, 18px); margin-bottom: 25px; }
+.meta-label { font-size: clamp(0.75rem, 2.2vw, 0.85rem); font-weight: 600; color: #94a3b8; }
+.meta-value { font-size: clamp(0.85rem, 2.5vw, 0.95rem); font-weight: bold; }
+.link-row { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: clamp(10px, 3.5vw, 16px) clamp(12px, 4vw, 20px); display: flex; justify-content: space-between; align-items: center; gap: 10px; transition: all 0.3s ease; }
+.link-row:hover { background: rgba(255, 255, 255, 0.04); border-color: rgba(187, 134, 252, 0.15); }
+.link-label { font-size: clamp(0.76rem, 2.4vw, 0.88rem); font-weight: 600; color: #cbd5e1; }
+.btn-copy { background: linear-gradient(135deg, #bb86fc, #9a67ea); border: none; color: #0a0915; border-radius: 10px; padding: 10px 14px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; font-size: 0.95rem; }
 .btn-copy:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(187, 134, 252, 0.35); filter: brightness(1.1); }
-.btn-qr { background: rgba(0, 255, 204, 0.04); border: 1px solid rgba(0, 255, 204, 0.15); color: #00ffcc; border-radius: 10px; padding: 10px 14px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.btn-qr { background: rgba(0, 255, 204, 0.04); border: 1px solid rgba(0, 255, 204, 0.15); color: #00ffcc; border-radius: 10px; padding: 10px 14px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; cursor: pointer; width: 40px; height: 40px; font-size: 0.95rem; }
 .btn-qr:hover { background: #00ffcc; color: #120e24; box-shadow: 0 0 15px rgba(0, 255, 204, 0.4); }
-.btn-help { background: rgba(129, 140, 248, 0.04); border: 1px solid rgba(129, 140, 248, 0.15); color: #818cf8; border-radius: 10px; padding: 10px 14px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.btn-help { background: rgba(129, 140, 248, 0.04); border: 1px solid rgba(129, 140, 248, 0.15); color: #818cf8; border-radius: 10px; padding: 10px 14px; font-weight: bold; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; cursor: pointer; width: 40px; height: 40px; font-size: 0.95rem; }
 .btn-help:hover { background: #818cf8; color: #120e24; box-shadow: 0 0 15px rgba(129, 140, 248, 0.4); }
 .custom-modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 4, 10, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 1000; transition: all 0.3s ease; opacity: 0; }
 .custom-modal-backdrop.show { display: flex; opacity: 1; }
@@ -59,34 +58,38 @@ body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); 
 <span class="meta-value glow-highlight" id="footerText"></span>
 </div>
 </div>
-<div class="mb-4">
-<label class="input-label d-block mb-2" id="labelDirect"></label>
-<div class="input-group-custom">
-<input type="text" id="linkDirect" readonly>
-<button class="btn-copy" onclick="copyText('linkDirect')"><i class="bi bi-copy"></i></button>
-<button class="btn-qr" onclick="openQR('linkDirect', 'labelDirect')"><i class="bi bi-qr-code"></i></button>
+<div class="d-flex flex-column gap-3 mb-4">
+<div class="link-row">
+<span class="link-label" id="labelDirect"></span>
+<div class="d-flex gap-2">
+<button class="btn-copy" onclick="copyText('direct')" id="btnCopyDirect"><i class="bi bi-copy"></i></button>
+<button class="btn-qr" onclick="openQR('direct', 'labelDirect')"><i class="bi bi-qr-code"></i></button>
 <button class="btn-help" onclick="openHelp('direct')"><i class="bi bi-question-circle"></i></button>
 </div>
-<label class="input-label d-block mb-2" id="labelBase64"></label>
-<div class="input-group-custom">
-<input type="text" id="linkBase64" readonly>
-<button class="btn-copy" onclick="copyText('linkBase64')"><i class="bi bi-copy"></i></button>
-<button class="btn-qr" onclick="openQR('linkBase64', 'labelBase64')"><i class="bi bi-qr-code"></i></button>
+</div>
+<div class="link-row">
+<span class="link-label" id="labelBase64"></span>
+<div class="d-flex gap-2">
+<button class="btn-copy" onclick="copyText('base64')" id="btnCopyBase64"><i class="bi bi-copy"></i></button>
+<button class="btn-qr" onclick="openQR('base64', 'labelBase64')"><i class="bi bi-qr-code"></i></button>
 <button class="btn-help" onclick="openHelp('base64')"><i class="bi bi-question-circle"></i></button>
 </div>
-<label class="input-label d-block mb-2" id="labelClash"></label>
-<div class="input-group-custom">
-<input type="text" id="linkClash" readonly>
-<button class="btn-copy" onclick="copyText('linkClash')"><i class="bi bi-copy"></i></button>
-<button class="btn-qr" onclick="openQR('linkClash', 'labelClash')"><i class="bi bi-qr-code"></i></button>
+</div>
+<div class="link-row">
+<span class="link-label" id="labelClash"></span>
+<div class="d-flex gap-2">
+<button class="btn-copy" onclick="copyText('clash')" id="btnCopyClash"><i class="bi bi-copy"></i></button>
+<button class="btn-qr" onclick="openQR('clash', 'labelClash')"><i class="bi bi-qr-code"></i></button>
 <button class="btn-help" onclick="openHelp('clash')"><i class="bi bi-question-circle"></i></button>
 </div>
-<label class="input-label d-block mb-2" id="labelSingBox"></label>
-<div class="input-group-custom">
-<input type="text" id="linkSingBox" readonly>
-<button class="btn-copy" onclick="copyText('linkSingBox')"><i class="bi bi-copy"></i></button>
-<button class="btn-qr" onclick="openQR('linkSingBox', 'labelSingBox')"><i class="bi bi-qr-code"></i></button>
+</div>
+<div class="link-row">
+<span class="link-label" id="labelSingBox"></span>
+<div class="d-flex gap-2">
+<button class="btn-copy" onclick="copyText('singbox')" id="btnCopySingBox"><i class="bi bi-copy"></i></button>
+<button class="btn-qr" onclick="openQR('singbox', 'labelSingBox')"><i class="bi bi-qr-code"></i></button>
 <button class="btn-help" onclick="openHelp('singbox')"><i class="bi bi-question-circle"></i></button>
+</div>
 </div>
 </div>
 </div>
@@ -101,12 +104,13 @@ body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); 
 </div>
 <script>
 let currentLang = 'fa';
+const links = { direct: '', base64: '', clash: '', singbox: '' };
 const translations = {
 fa: {
 title: "پنل دریافت اشتراک",
 userLabel: "نام کاربری:",
 expireLabel: "تاریخ پایان اشتراک:",
-labelDirect: "لینک اتصال مستقیم (Direct Link):",
+labelDirect: "لینک اتصال مستقیم (V2ray Link):",
 labelBase64: "لینک اشتراک پایگاه (Base64 Link):",
 labelClash: "لینک اشتراک کلش (Clash Link):",
 labelSingBox: "لینک اشتراک ساین‌باکس (Sing-box Link):",
@@ -129,7 +133,7 @@ en: {
 title: "SUBSCRIPTION PANEL",
 userLabel: "Username:",
 expireLabel: "Subscription Expiration:",
-labelDirect: "Direct Connection Link:",
+labelDirect: "Direct Connection Link (V2ray Link):",
 labelBase64: "Base64 Subscription Link:",
 labelClash: "Clash Subscription Link:",
 labelSingBox: "Sing-box Subscription Link:",
@@ -149,20 +153,29 @@ singbox: "We recommend using the official Sing-box application, which features a
 }
 }
 };
-function copyText(id) {
-const input = document.getElementById(id);
-input.select();
+function copyText(key) {
+const val = links[key];
+const el = document.createElement('textarea');
+el.value = val;
+document.body.appendChild(el);
+el.select();
 document.execCommand('copy');
+document.body.removeChild(el);
+const btnId = 'btnCopy' + key.charAt(0).toUpperCase() + key.slice(1);
+const btn = document.getElementById(btnId);
+const originalHtml = btn.innerHTML;
+btn.innerHTML = `<i class="bi bi-check-lg"></i>`;
+setTimeout(() => { btn.innerHTML = originalHtml; }, 1500);
 }
-function openQR(inputId, labelId) {
+function openQR(key, labelId) {
 const t = translations[currentLang];
-const linkVal = document.getElementById(inputId).value;
+const linkVal = links[key];
 document.getElementById('modalTitle').innerText = t[labelId];
 const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(linkVal)}`;
 document.getElementById('modalBody').innerHTML = `
-<div class="text-center p-3">
-<img src="${qrUrl}" alt="QR" class="img-fluid rounded mb-3" style="border: 4px solid #fff; box-shadow: 0 0 20px rgba(0,255,204,0.35); max-width: 180px;">
-<p class="text-secondary small" style="word-break: break-all; margin-top: 10px; font-family: monospace;">${linkVal}</p>
+<div class="text-center p-2">
+<img src="${qrUrl}" alt="QR" class="img-fluid rounded mb-3" style="border: 4px solid #fff; box-shadow: 0 0 20px rgba(0,255,204,0.35); max-width: 170px;">
+<p class="text-secondary small" style="word-break: break-all; margin-top: 10px; font-family: monospace; font-size: 0.72rem; opacity: 0.85;">${linkVal}</p>
 </div>
 `;
 const modal = document.getElementById('customModal');
@@ -210,12 +223,6 @@ document.getElementById('labelClash').innerText = t.labelClash;
 document.getElementById('labelSingBox').innerText = t.labelSingBox;
 document.getElementById('btnFa').className = lang === 'fa' ? 'lang-btn active' : 'lang-btn';
 document.getElementById('btnEn').className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
-const inputs = ['linkDirect', 'linkBase64', 'linkClash', 'linkSingBox'];
-inputs.forEach(id => {
-const input = document.getElementById(id);
-input.style.textAlign = 'ltr';
-input.style.direction = 'ltr';
-});
 let rawExpire = "{{EXPIRE}}";
 let datePart = rawExpire.replace("تاریخ پایان اشتراک: ", "");
 if (lang === 'en') {
@@ -226,10 +233,10 @@ document.getElementById('footerText').innerText = datePart;
 const host = "{{HOST}}";
 const password = "{{PASSWORD}}";
 const username = "{{USERNAME}}";
-document.getElementById('linkDirect').value = `https://${host}/${password}?sub#${username}`;
-document.getElementById('linkBase64').value = `https://${host}/${password}?b64#${username}`;
-document.getElementById('linkClash').value = `https://${host}/${password}?clash#${username}`;
-document.getElementById('linkSingBox').value = `https://${host}/${password}?singbox#${username}`;
+links.direct = `https://${host}/${password}?sub#${username}`;
+links.base64 = `https://${host}/${password}?b64#${username}`;
+links.clash = `https://${host}/${password}?clash#${username}`;
+links.singbox = `https://${host}/${password}?singbox#${username}`;
 setLang('fa');
 </script>
 </body>
