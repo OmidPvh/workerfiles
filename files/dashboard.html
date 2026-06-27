@@ -8,14 +8,14 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); min-height: 100vh; font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; padding: 20px; transition: all 0.3s; }
+body { background: radial-gradient(circle at center, #0f0c20 0%, #030206 100%); min-height: 100vh; font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 3vw, 20px); transition: all 0.3s; }
 .glass-panel { background: rgba(15, 12, 32, 0.55); border: 1px solid rgba(187, 134, 252, 0.2); border-radius: 24px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(187, 134, 252, 0.04); width: 100%; max-width: 580px; padding: clamp(20px, 6vw, 40px); position: relative; overflow: hidden; }
 .glass-panel::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 255, 204, 0.02) 0%, transparent 60%); pointer-events: none; }
 .lang-btn { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: #a5b4fc; border-radius: 12px; padding: 6px 16px; font-size: clamp(0.75rem, 2vw, 0.85rem); font-weight: bold; transition: all 0.2s ease; cursor: pointer; }
 .lang-btn:hover { background: rgba(187, 134, 252, 0.15); color: #fff; border-color: rgba(187, 134, 252, 0.4); }
 .lang-btn.active { background: linear-gradient(135deg, #bb86fc, #818cf8); color: #030206; border-color: transparent; box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4); }
 .glow-title { font-weight: 700; letter-spacing: 1px; text-shadow: 0 0 20px rgba(0, 255, 204, 0.4); color: #00ffcc; font-size: clamp(1.1rem, 4vw, 1.35rem); }
-.user-meta-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 18px; margin-bottom: 25px; }
+.user-meta-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: clamp(12px, 4vw, 18px); margin-bottom: 25px; }
 .meta-label { font-size: clamp(0.75rem, 2.2vw, 0.85rem); font-weight: 600; color: #94a3b8; }
 .meta-value { font-size: clamp(0.85rem, 2.5vw, 0.95rem); font-weight: bold; }
 .link-row { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: clamp(10px, 3.5vw, 16px) clamp(12px, 4vw, 20px); display: flex; justify-content: space-between; align-items: center; gap: 10px; transition: all 0.3s ease; }
@@ -174,7 +174,7 @@ document.getElementById('modalTitle').innerText = t[labelId];
 const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(linkVal)}`;
 document.getElementById('modalBody').innerHTML = `
 <div class="text-center p-2">
-<img src="${qrUrl}" alt="QR" class="img-fluid rounded mb-3" style="border: 4px solid #fff; box-shadow: 0 0 20px rgba(0,255,204,0.35); max-width: 180px;">
+<img src="${qrUrl}" alt="QR" class="img-fluid rounded mb-3" style="border: 4px solid #fff; box-shadow: 0 0 20px rgba(0,255,204,0.35); max-width: 170px;">
 <p class="text-secondary small" style="word-break: break-all; margin-top: 10px; font-family: monospace; font-size: 0.72rem; opacity: 0.85;">${linkVal}</p>
 </div>
 `;
@@ -223,12 +223,6 @@ document.getElementById('labelClash').innerText = t.labelClash;
 document.getElementById('labelSingBox').innerText = t.labelSingBox;
 document.getElementById('btnFa').className = lang === 'fa' ? 'lang-btn active' : 'lang-btn';
 document.getElementById('btnEn').className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
-const inputs = ['linkDirect', 'linkBase64', 'linkClash', 'linkSingBox'];
-inputs.forEach(id => {
-const input = document.getElementById(id);
-input.style.textAlign = 'ltr';
-input.style.direction = 'ltr';
-});
 let rawExpire = "{{EXPIRE}}";
 let datePart = rawExpire.replace("تاریخ پایان اشتراک: ", "");
 if (lang === 'en') {
@@ -238,6 +232,7 @@ document.getElementById('footerText').innerText = datePart;
 }
 const host = "{{HOST}}";
 const password = "{{PASSWORD}}";
+const username = "{{USERNAME}}";
 links.direct = `https://${host}/${password}?sub`;
 links.base64 = `https://${host}/${password}?b64`;
 links.clash = `https://${host}/${password}?clash`;
